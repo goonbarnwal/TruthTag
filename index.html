@@ -1,0 +1,582 @@
+<button class="secondary-button" id="downloadReportBtn">
+   <i class="fas fa-download"></i> Download Report
+</button>  isko kaha aadd karna hai   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruthTag – Intelligent Job Scam Detection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="login-page" id="loginPage">
+        <button class="close-login" id="closeLogin">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="login-logo">
+                        <div class="login-logo-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <h2>Welcome to TruthTag</h2>
+                    <p>Sign in to access advanced job scam detection</p>
+                </div>
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <label for="rememberMe">Remember me</label>
+                        </div>
+                        <a href="#" id="forgotPasswordBtn">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="login-btn">Sign In</button>
+                    
+                    <div class="divider">
+                        <span>Or continue with</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i>
+                            Google
+                        </button>
+                        <button type="button" class="social-btn linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </button>
+                    </div>
+                    
+                    <div class="login-footer">
+                        <p>Don't have an account? <a href="#" id="signupLink">Sign up</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    TruthTag
+                </a>
+                <div class="nav-links">
+                    <a href="#features">How It Works</a>
+                    <a href="#scanner">Analyzer</a>
+                    <a href="#indicators">Indicators</a>
+                    <a href="#about">About</a>
+                    <div class="nav-user">
+                        <button class="secondary-button" id="loginBtn">Sign In</button>
+                        <div class="user-profile" id="userProfile" style="display: none;">
+                            <span id="userInitials">U</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- API Documentation Button -->
+    <button class="api-button" id="apiButton">
+        <i class="fas fa-code"></i>
+        <span>API Documentation</span>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">Protect Your Career Journey</h1>
+                <p class="hero-subtitle">TruthTag uses advanced AI to detect fake job postings and internship scams. Get instant risk analysis before you apply.</p>
+                <div class="hero-buttons">
+                    <button class="cta-button" onclick="scrollToScanner()">
+                        <i class="fas fa-search"></i> Analyze Job Posting
+                    </button>
+                    <button class="secondary-button" onclick="openAPIModal()">
+                        <i class="fas fa-play-circle"></i> See How It Works
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Jobs Analyzed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Accuracy Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Scams Detected</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Tutorial Section -->
+<section class="video-section" id="videoTutorial">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2 class="section-title">Watch How TruthTag Works</h2>
+      <p class="section-subtitle">A 90-second guide to protect yourself from job scams</p>
+    </div>
+
+    <div class="video-container fade-in">
+      <div class="video-player">
+        <video id="tutorialVideo"
+          preload="metadata"
+          controls
+          poster="thumbnail.jpg">
+
+          <source src="demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- Video Overlay -->
+        <div class="video-overlay" id="videoOverlay">
+          <div class="play-button" id="playVideoBtn">▶</div>
+          <h3>How TruthTag Protects You</h3>
+          <p>
+            This 90-second tutorial will show you how to detect fake jobs,
+            verify companies, and stay safe in your career journey.
+          </p>
+          <button class="skip-button" id="skipVideoBtn">Skip Tutorial</button>
+        </div>
+      </div>
+
+      <div class="video-controls">
+        <button class="video-btn" id="replayVideoBtn">🔄 Replay</button>
+        <button class="video-btn" id="muteVideoBtn">🔊 Sound On</button>
+        <button class="video-btn primary" id="tryNowBtn">🚀 Try It Now</button>
+      </div>
+
+      <div class="video-info">
+        <p>⏱ 90 seconds • ℹ Learn how to use all features</p>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How TruthTag Protects You</h2>
+                <p class="section-subtitle">Our intelligent system analyzes multiple factors to provide comprehensive risk assessment</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered Analysis</h3>
+                    <p>Advanced machine learning algorithms detect scam patterns and suspicious language in job descriptions with 98% accuracy.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-building-shield"></i>
+                    </div>
+                    <h3>Company Verification</h3>
+                    <p>Real-time verification of company legitimacy, digital presence, and HR contact credibility through multiple data sources.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Risk Scoring</h3>
+                    <p>Get a clear risk score (0-100) with color-coded results and detailed explanations of detected risk factors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scanner Section -->
+    <section class="scanner" id="scanner">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Job Safety Scanner</h2>
+                <p class="section-subtitle">Paste the job details below for instant analysis and risk assessment</p>
+            </div>
+            <div class="scanner-container">
+                <div class="scanner-card">
+                    <form id="jobScannerForm">
+                        <div class="form-group">
+                            <label class="form-label">Company Name</label>
+                            <input type="text" class="form-control" id="companyName" placeholder="Enter the company name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">HR Email / Contact</label>
+                            <input type="email" class="form-control" id="hrEmail" placeholder="hr@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Job Description</label>
+                            <textarea class="form-control textarea-control" id="jobDescription" placeholder="Paste the full job description here..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Job Posting URL (Optional)</label>
+                            <input type="url" class="form-control" id="jobUrl" placeholder="https://linkedin.com/jobs/view/...">
+                        </div>
+                        <button type="submit" class="analyze-button">
+                            <i class="fas fa-shield-alt"></i> Analyze Job Safety
+                        </button>
+                    </form>
+
+                    <div class="loading" id="loadingIndicator">
+                        <div class="scanner-animation">
+                            <div class="scanner-beam"></div>
+                        </div>
+                        <h3>Scanning Job Posting</h3>
+                        <p>Analyzing text patterns, verifying company details, and calculating risk score...</p>
+                    </div>
+
+                    <div class="results-section" id="resultsSection" style="display:none">
+                       <div class="risk-card">
+                            <div class="risk-header">
+                                <div class="risk-badge suspicious" id="riskBadge">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Medium Risk
+                                </div>
+                                <h3>Analysis Results</h3>
+                            </div>
+                            <div class="risk-score">
+                                <div class="score-circle" id="scoreCircle">
+                                    <div class="score-text" id="scoreText">65</div>
+                                </div>
+                                <div>
+                                    <h4>Risk Assessment</h4>
+                                    <p id="riskDescription">This job posting shows several suspicious indicators. Proceed with caution and verify details before proceeding.</p>
+                                </div>
+                            </div>
+                            <div class="risk-factors">
+                                <h4>Detected Risk Factors</h4>
+                                <ul class="factor-list" id="riskFactors">
+                                    <!-- Factors will be populated by JS -->
+                                </ul>
+                            </div>
+                                    <!-- ✅ Company Details Div -->
+                            <div id="companyCard" class="company-card" style="display:none;">
+                                     <!-- company details yaha JS se aayengi -->
+                            </div>
+                            <div style="display: flex; gap: 16px; margin-top: 32px;">
+                                <button class="cta-button" onclick="resetScanner()">
+                                    <i class="fas fa-redo"></i> Analyze Another
+                                </button>
+                                <button class="secondary-button" onclick="downloadReport()">
+                                     <i class="fas fa-download"></i> Download Report
+                                </button>
+                                 <!-- 🔴 TEST BUTTON (TEMPORARY) -->
+                                 <button onclick="alert('clicked')">Test</button>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Indicators Section -->
+    <section class="indicators" id="indicators">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Common Scam Indicators</h2>
+                <p class="section-subtitle">Learn to recognize these red flags in job postings</p>
+            </div>
+            <div class="indicators-grid">
+                <div class="indicator-card">
+                    <div class="indicator-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Upfront Payment</h3>
+                    <p>Requests for training fees, equipment costs, or processing charges before employment begins.</p>
+                </div>
+                <div class="indicator-card">
+                    <div class="indicator-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3>Vague Details</h3>
+                    <p>Poorly written descriptions, missing company information, or unrealistic salary promises.</p>
+                </div>
+                <div class="indicator-card">
+                    <div class="indicator-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Suspicious Contact</h3>
+                    <p>Free email domains for official HR communication instead of company email addresses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        TruthTag
+                    </a>
+                    <p class="footer-description">Protecting job seekers from fraud through intelligent verification and education.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#features">How It Works</a></li>
+                        <li><a href="#scanner">Job Scanner</a></li>
+                        <li><a href="#indicators">Safety Guide</a></li>
+                        <li><a href="#" onclick="openAPIModal()">API Access</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Scam Reports</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Report Abuse</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 TruthTag. All rights reserved. This tool provides risk assessment and should be used alongside personal verification.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- API Documentation Modal -->
+    <div class="api-modal" id="apiModal">
+        <div class="api-modal-content">
+            <div class="api-modal-header">
+                <h2><i class="fas fa-code"></i> TruthTag API Documentation</h2>
+                <button class="close-modal" onclick="closeAPIModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="api-modal-body">
+                <h3>Overview</h3>
+                <p>TruthTag API allows developers to integrate job scam detection capabilities into their applications. The API analyzes job postings and returns detailed risk assessments.</p>
+                
+                <div class="endpoint-section">
+                    <div class="endpoint-header">
+                        <span class="method post">POST</span>
+                        <span class="endpoint-path">/api/v1/analyze-job</span>
+                    </div>
+                    <div class="endpoint-body">
+                        <h4>Analyze Job Posting</h4>
+                        <p>Submit job details for analysis and receive a comprehensive risk assessment.</p>
+                        
+                        <h5>Request Body</h5>
+                        <div class="code-block">
+                            {
+                              "company_name": "string",
+                              "hr_email": "string",
+                              "job_description": "string",
+                              "job_url": "string (optional)"
+                            }
+                        </div>
+                        
+                        <h5>Response</h5>
+                        <div class="code-block">
+                            {
+                              "risk_score": 65,
+                              "risk_level": "suspicious",
+                              "confidence": 0.92,
+                              "factors": [
+                                {
+                                  "type": "email",
+                                  "severity": "high",
+                                  "description": "Uses free email domain",
+                                  "recommendation": "Verify company contact"
+                                }
+                              ],
+                              "analysis_time": "2023-12-01T10:30:00Z"
+                            }
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="endpoint-section">
+                    <div class="endpoint-header">
+                        <span class="method get">GET</span>
+                        <span class="endpoint-path">/api/v1/health</span>
+                    </div>
+                    <div class="endpoint-body">
+                        <h4>Service Health Check</h4>
+                        <p>Check the current status of the TruthTag API service.</p>
+                        
+                        <h5>Response</h5>
+                        <div class="code-block">
+                            {
+                              "status": "operational",
+                              "version": "1.2.0",
+                              "uptime": 99.8,
+                              "timestamp": "2023-12-01T10:30:00Z"
+                            }
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="endpoint-section">
+                    <div class="endpoint-header">
+                        <span class="method get">GET</span>
+                        <span class="endpoint-path">/api/v1/stats</span>
+                    </div>
+                    <div class="endpoint-body">
+                        <h4>Service Statistics</h4>
+                        <p>Get aggregated statistics about jobs analyzed by TruthTag.</p>
+                        
+                        <h5>Response</h5>
+                        <div class="code-block">
+                            {
+                              "total_analyzed": 12500,
+                              "scams_detected": 523,
+                              "average_score": 42,
+                              "accuracy_rate": 0.98,
+                              "last_updated": "2023-12-01T10:30:00Z"
+                            }
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Authentication</h3>
+                <p>All API requests require an API key. Include it in the header:</p>
+                <div class="code-block">
+                    Authorization: Bearer your_api_key_here
+                </div>
+                
+                <h3>Rate Limits</h3>
+                <p>Free tier: 100 requests/day<br>
+                Pro tier: 10,000 requests/day<br>
+                Enterprise: Custom limits</p>
+                
+                <h3>SDKs & Libraries</h3>
+                <p>Official libraries available for:</p>
+                <ul>
+                    <li>Python</li>
+                    <li>JavaScript/Node.js</li>
+                    <li>Java</li>
+                    <li>PHP</li>
+                </ul>
+                
+                <div style="text-align: center; margin-top: 32px;">
+                    <button class="cta-button" style="width: auto; display: inline-flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-key"></i> Get API Key
+                    </button>
+                    <button class="secondary-button" style="width: auto; display: inline-flex; align-items: center; gap: 10px; margin-left: 16px;">
+                        <i class="fab fa-github"></i> View SDKs
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script>
+function downloadReport() {
+  const company = document.getElementById("companyName").value || "N/A";
+  const email = document.getElementById("hrEmail").value || "N/A";
+  const desc = document.getElementById("jobDescription").value || "N/A";
+  const score = document.getElementById("scoreText")?.innerText || "N/A";
+  const risk = document.getElementById("riskBadge")?.innerText || "N/A";
+  const reasonsList = Array.from(document.querySelectorAll("#riskFactors li"))
+                           .map(li => "- " + li.innerText)
+                           .join("\n") || "No red flags detected";
+
+  const now = new Date().toLocaleString();
+
+  const reportText = `
+=====================================================
+             TRUTHTAG – JOB SCAN REPORT
+=====================================================
+
+Logo: [🛡️ TruthTag]   Protecting Job Seekers Since 2026
+Scan Date & Time: ${now}
+
+-----------------------------------------------------
+Company Details
+-----------------------------------------------------
+Company Name: ${company}
+HR Email: ${email}
+
+-----------------------------------------------------
+Job Description Overview
+-----------------------------------------------------
+${desc.substring(0, 500)}${desc.length > 500 ? "..." : ""}
+
+-----------------------------------------------------
+Risk Assessment
+-----------------------------------------------------
+Risk Level   : ${risk}
+Risk Score   : ${score}/100
+
+-----------------------------------------------------
+Detected Red Flags
+-----------------------------------------------------
+${reasonsList}
+
+-----------------------------------------------------
+Analysis Summary
+-----------------------------------------------------
+This report provides a detailed risk evaluation of the job posting.
+• Red flags are highlighted based on HR email, company type, and job description length & quality.
+• Risk Score indicates the likelihood of the job being a scam.
+• Status colors: 🟢 Safe | 🟡 Suspicious | 🔴 Scam
+
+-----------------------------------------------------
+Final Recommendation
+-----------------------------------------------------
+${
+  parseInt(score) > 60
+    ? "❌ HIGH RISK: Do NOT share personal information or make any payments."
+    : parseInt(score) > 30
+    ? "⚠️ SUSPICIOUS: Verify all details before proceeding."
+    : "✅ SAFE: Looks okay, but remain vigilant."
+}
+
+=====================================================
+Generated by TruthTag – Fake Job / Internship Detector
+=====================================================
+`;
+
+  const blob = new Blob([reportText], { type: "text/plain" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `TruthTag_Job_Report_${company.replace(/\s/g,'_')}.txt`;
+  link.click();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "TruthTag",
+  "description": "Real-time company verification for job seekers",
+  "version": "1.0",
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
